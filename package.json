@@ -1,0 +1,26 @@
+{
+  "name": "dwwm",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "concat": "cat css/*.css > dist/style.css",
+    "prefix": "postcss dist/style.css --use autoprefixer -o dist/style.css ",
+    "minify": "uglifycss dist/style.css > dist/style.min.css",
+    "build:css": "npm run concat && npm run prefix && npm run minify",
+    "watch:css": "onchange 'css/*.css' -- npm run build:css",
+    "start": "npm run watch:css",
+    "scss": "node-sass --output-style compressed --source-map true -o css scss --watch"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^9.7.4",
+    "css-concat": "0.0.4",
+    "node-sass": "^4.14.0",
+    "onchange": "^6.1.0",
+    "postcss-cli": "^7.1.0",
+    "uglifycss": "0.0.29"
+  },
+  "browserslist": "last 4 versions"
+}
